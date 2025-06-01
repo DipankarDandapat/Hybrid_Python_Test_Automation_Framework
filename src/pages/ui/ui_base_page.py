@@ -1216,7 +1216,7 @@ class BasePage:
         Args:
             cookie_dict (dict): A dictionary specifying the cookie properties (e.g., {"name": "foo", "value": "bar"}).
         """
-        log.info(f"Adding cookie: {cookie_dict.get("name")}")
+        log.info(f"Adding cookie: {cookie_dict.get('name')}")
         try:
             self.driver.add_cookie(cookie_dict)
             log.info(f"Added cookie ", {cookie_dict.get("name")}, f" successfully.")

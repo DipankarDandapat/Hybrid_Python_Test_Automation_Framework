@@ -22,3 +22,13 @@ Thumbs.db
 # Testing cache
 .cache/
 .pytest_cache/
+
+#report
+reports/
+# allure result
+allure-results/
+# test report
+html_report/
+
+#log report
+AutoLogs/

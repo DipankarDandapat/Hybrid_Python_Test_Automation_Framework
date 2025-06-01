@@ -1,0 +1,35 @@
+{
+  "local": {
+    "platformName": "iOS",
+    "automationName": "XCUITest",
+    "deviceName": "iPhone Simulator",
+    "platformVersion": "15.0",
+    "bundleId": "com.example.app",
+    "noReset": false,
+    "newCommandTimeout": 300
+  },
+  "browserstack": {
+    "platformName": "iOS",
+    "platformVersion": "15.0",
+    "deviceName": "iPhone 13",
+    "app": "bs://sample-app-id",
+    "bstack:options": {
+      "projectName": "Mobile Automation Framework",
+      "buildName": "iOS Build",
+      "sessionName": "iOS Test",
+      "userName": "${BS_USERNAME}",
+      "accessKey": "${BS_ACCESS_KEY}"
+    }
+  },
+  "saucelabs": {
+    "platformName": "iOS",
+    "platformVersion": "15.0",
+    "deviceName": "iPhone Simulator",
+    "app": "sauce-storage:sample-app.zip",
+    "sauce:options": {
+      "appiumVersion": "2.0.0",
+      "username": "${SAUCE_USERNAME}",
+      "accessKey": "${SAUCE_ACCESS_KEY}"
+    }
+  }
+}

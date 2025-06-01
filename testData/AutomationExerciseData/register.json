@@ -1,0 +1,26 @@
+{
+  "Positive": [
+    {
+      "description": "Test with all valid inputs to register ",
+
+      "register_user_name": "deep",
+      "register_user_email": "d1@gmail.com",
+      "register_user_title": "Mr.",
+      "register_user_password": "dipankar",
+      "register_user_birthDay": "5",
+      "register_user_birthMonth": "4",
+      "register_user_birthYear": "2000",
+      "register_user_addressfirstName": "dipankar",
+      "register_user_addresslastName": "dandapat",
+      "register_user_addressCompany": "4/6,Bangalore",
+      "register_user_address": "Bangalore",
+      "register_user_streetAddress": "100 feet road",
+      "register_user_selectCountry": "United States",
+      "register_user_state": "karnataka",
+      "register_user_city": "Bagalore",
+      "register_user_zipcode": "560034",
+      "register_user_mobilenumber": "9000000000"
+    }
+  ]
+
+}

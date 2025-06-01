@@ -1,0 +1,35 @@
+{
+  "local": {
+    "platformName": "Android",
+    "automationName": "UiAutomator2",
+    "deviceName": "ASUS_Z01RD",
+    "appPackage": "com.androbot.moneyprankpro",
+    "appActivity": "com.androbot.moneyprankpro.MainActivity",
+    "noReset": false,
+    "newCommandTimeout": 300
+  },
+  "browserstack": {
+    "platformName": "Android",
+    "platformVersion": "12.0",
+    "deviceName": "Samsung Galaxy S22",
+    "app": "bs://903995a9802308702cee12997a77512b85442ccb",
+    "bstack:options": {
+      "projectName": "Mobile Automation Framework",
+      "buildName": "Android Build",
+      "sessionName": "Android Test",
+      "userName": "dipankardandapat_yhxNYj",
+      "accessKey": "HzyfveztAXXXXXXXX"
+    }
+  },
+  "saucelabs": {
+    "platformName": "Android",
+    "platformVersion": "12.0",
+    "deviceName": "Android GoogleAPI Emulator",
+    "app": "sauce-storage:sample-app.apk",
+    "sauce:options": {
+      "appiumVersion": "2.0.0",
+      "username": "${SAUCE_USERNAME}",
+      "accessKey": "${SAUCE_ACCESS_KEY}"
+    }
+  }
+}

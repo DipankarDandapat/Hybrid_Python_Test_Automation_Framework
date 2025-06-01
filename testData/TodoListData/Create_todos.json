@@ -1,0 +1,1303 @@
+{
+  "Positive": [
+    {
+      "description": "Test with all valid inputs as specified in API information",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar",
+        "description": "Dipankar is good boy"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    }
+  ],
+  "Semantic": [
+    {
+      "description": "Test with multiline text in description field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar ",
+        "description": "This is line 1\\nThis is line 2\\nThis is line 3"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with emojis in description field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar ",
+        "description": "?☀\uFE0F??"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with HTML tags in description field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar ",
+        "description": "<p>This is a paragraph</p>"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with long description exceeding character limit",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with special characters in description field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar ",
+        "description": "Dipankar is a good boy!@#"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with names containing apostrophes in the title field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "O'Brien Dipankar D'Arcy",
+        "description": "Dipankar is a good boy!@#"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with roman numerals in the title field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar II Chakraborty",
+        "description": "Dipankar is a good boy!@#"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with control characters like newline/tab in the title field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar\\nChakraborty",
+        "description": "Dipankar is a good boy!@#"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with special characters in the title field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar#@* Chakraborty",
+        "description": "Dipankar is a good boy!@#"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with name containing non-ASCII characters in the title field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar محمد Chakraborty",
+        "description": "Dipankar is a good boy!@#"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with an integer for 'description' field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar محمد Chakraborty",
+        "description": 12345
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with non-English characters for 'description' field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar Chakraborty",
+        "description": "Dipankar is gôôd bôý"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with given field missing - json_body.description",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar Chakraborty"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with integer value for 'title' field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": 12345,
+        "description": "Dipankar is good boy"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with non-English characters in 'title' field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dîpåñkår",
+        "description": "Dipankar is good boy"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    },
+    {
+      "description": "Test with non-English characters in 'title' field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dîpåñkår",
+        "description": "Dipankar is good boy"
+      },
+      "expected_status": 201,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isComplete": {
+                "type": "boolean"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "updatedAt": {
+                "type": "string"
+              },
+              "__v": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "title",
+              "description",
+              "isComplete",
+              "_id",
+              "createdAt",
+              "updatedAt",
+              "__v"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    }
+  ],
+  "Negative": [
+    {
+      "description": "Test with empty string for title field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "",
+        "description": "Dipankar is good boy"
+      },
+      "expected_status": 422,
+      "expected_schema": {}
+    },
+    {
+      "description": "Test with empty string for description field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar",
+        "description": ""
+      },
+      "expected_status": 422,
+      "expected_schema":{}
+    },
+    {
+      "description": "Test with null value for title field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": null,
+        "description": "Dipankar Is good boy"
+      },
+      "expected_status": 422,
+      "expected_schema": {}
+    },
+    {
+      "description": "Test with null value for description field",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar",
+        "description": null
+      },
+      "expected_status": 422,
+      "expected_schema": {}
+    },
+    {
+      "description": "Test with given field missing - json_body.title",
+      "endpoint": "/api/v1/todos/",
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "description": "Dipankar is a good boy"
+      },
+      "expected_status": 422,
+      "expected_schema": {}
+    },
+    {
+      "description": "Test with wrong HTTP method",
+      "endpoint": "/api/v1/todos/",
+      "method": "PUT",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "payload": {
+        "title": "Dipankar",
+        "description": "Dipankar is a good boy"
+      },
+      "expected_status": 422,
+      "expected_schema": {}
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "login_test_data": {
+    "valid_credentials": {
+      "username": "testuser",
+      "password": "password123",
+      "expected_welcome": "Welcome, Test User!"
+    },
+    "invalid_credentials": {
+      "username": "wronguser",
+      "password": "wrongpass",
+      "expected_error": "Invalid username or password"
+    }
+  }
+}

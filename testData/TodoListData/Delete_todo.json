@@ -1,0 +1,108 @@
+{
+  "Positive": [
+    {
+      "description": "Test delete a todo with a valid ID",
+      "endpoint": "/api/v1/todos/{id}",
+      "method": "DELETE",
+      "path_params": {"id": "REPLACE_WITH_DATA"},
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "expected_status": 200,
+      "expected_schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "deletedTodo": {
+                "type": "object",
+                "properties": {
+                  "_id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "isComplete": {
+                    "type": "boolean"
+                  },
+                  "createdAt": {
+                    "type": "string"
+                  },
+                  "updatedAt": {
+                    "type": "string"
+                  },
+                  "__v": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "_id",
+                  "title",
+                  "description",
+                  "isComplete",
+                  "createdAt",
+                  "updatedAt",
+                  "__v"
+                ]
+              }
+            },
+            "required": [
+              "deletedTodo"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "statusCode",
+          "data",
+          "message",
+          "success"
+        ]
+      }
+    }
+  ],
+  "Semantic": [
+
+  ],
+  "Negative": [
+    {
+      "description": "Test delete a todo with invalid ID format",
+      "endpoint": "/api/v1/todos/11",
+      "method": "DELETE",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "expected_status": 422,
+      "expected_schema": {}
+    },
+    {
+      "description": "Test delete a todo not exist todo id",
+      "endpoint": "/api/v1/todos/648e0741aeefd0cfa40adddd",
+      "method": "GET",
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      "expected_status": 404,
+      "expected_schema":{}
+    }
+
+  ]
+}

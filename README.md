@@ -149,37 +149,41 @@ pip install -r requirements.txt
 
 ## Configuration
 
-### Environment Configuration
-
-The framework supports different environments (staging, production) through environment-specific configuration files:
-
-- `.env.staging`: Staging environment variables
-- `.env.prod`: Production environment variables
-
-These files contain environment-specific variables such as API URLs, credentials, and browser settings.
-
 ### Environment Variables
 
-The following environment variables are used by the framework:
+The framework uses environment variables for configuration:
 
-#### API Testing
-- `TO_DOS`: TO_DOS Base URL for API testing
+- `TEST_TYPE`: Type of test to run (`ui`, `mobile`, `api`). Default: `ui`
+- `IMPLICIT_WAIT`: Implicit wait timeout in seconds. Default: `10`
 
+**Web Specific:**
+- `BROWSER`: Browser to use for UI tests (`chrome`, `firefox`, `edge`). Default: `chrome`
+- `HEADLESS`: Run browser in headless mode (`true` or `false`). Default: `false`
+- `REMOTE_URL`: URL for remote Selenium Grid (if using `--remote`)
 
-#### UI Testing
-- `UI_BASE_URL`: Base URL for UI testing
-- `BROWSER`: Browser to use for UI tests (chrome, firefox, edge)
-- `HEADLESS`: Whether to run browser in headless mode (True/False)
-- `IMPLICIT_WAIT`: Implicit wait time in seconds
-- `EXPLICIT_WAIT`: Explicit wait time in seconds
+**Mobile Specific:**
+- `PLATFORM`: Platform to test on (`android` or `ios`). Default: `android`
+- `EXECUTION_MODE`: Execution mode (`local` or `cloud`). Default: `local`
+- `CLOUD_PROVIDER`: Cloud provider for remote execution (`browserstack`, `saucelabs`). Default: `browserstack`
+- `APPIUM_SERVER_URL`: URL of the Appium server (for local execution). Default: `http://127.0.0.1:4723`
+- `APP`: Path to mobile app file or app ID for cloud execution (can also be passed via `--app`)
 
-#### Remote Testing
-- `REMOTE_URL`: URL for remote WebDriver (BrowserStack/LambdaTest)
-- `BS_USERNAME`: BrowserStack/LambdaTest username
-- `BS_ACCESS_KEY`: BrowserStack/LambdaTest access key
-- `PLATFORM`: Platform for remote testing (Windows, macOS, iOS, Android)
-- `BROWSER_VERSION`: Browser version for remote testing
-- `RESOLUTION`: Screen resolution for remote testing
+**Cloud Provider Credentials:**
+- BrowserStack:
+  - `BS_USERNAME`: BrowserStack username
+  - `BS_ACCESS_KEY`: BrowserStack access key
+- Sauce Labs:
+  - `SAUCE_USERNAME`: Sauce Labs username
+  - `SAUCE_ACCESS_KEY`: Sauce Labs access key
+
+### Capabilities Configuration
+
+Platform-specific capabilities are configured in JSON files:
+
+- Android: `config/android_caps.json`
+- iOS: `config/ios_caps.json`
+
+These files contain configurations for different execution modes (local, browserstack, saucelabs). The framework substitutes `${ENV_VAR}` placeholders with actual environment variable values.
 
 ## Running Tests
 
@@ -396,6 +400,127 @@ class TestLogin:
 ```
 ## Mobile Testing
 
+## Prerequisites
+
+1. Python 3.9 or higher
+2. Node.js and npm (for Appium installation)
+3. Appium Server 2.x
+4. Appium Drivers (e.g., `xcuitest`, `uiautomator2`)
+5. Appium Plugins (optional)
+6. Android SDK (for Android testing)
+7. Xcode (for iOS testing)
+8. Real devices or emulators/simulators
+
+## Installation
+
+### 1. Install Appium 2 Server
+
+Appium 2 is installed via npm (Node Package Manager). Ensure you have Node.js and npm installed.
+
+```bash
+npm install --location=global appium
+```
+
+This installs the Appium 2 server globally. You can verify the installation by running:
+
+```bash
+appium --version
+```
+
+### 2. Install Appium Drivers
+
+Appium 2 requires drivers to be installed separately. Use the Appium Extension CLI to install the drivers you need:
+
+```bash
+# Install the UiAutomator2 driver for Android
+appium driver install uiautomator2
+
+# Install the XCUITest driver for iOS
+appium driver install xcuitest
+```
+
+You can list installed drivers using:
+
+```bash
+appium driver list
+```
+
+### 3. Install Appium Plugins (Optional)
+
+If you need specific Appium plugins, install them using the Extension CLI:
+
+```bash
+# Example: Install the images plugin
+appium plugin install images
+```
+
+List installed plugins using:
+
+```bash
+appium plugin list
+```
+
+### 4. Install Python Dependencies
+
+Install the required Python packages for the framework:
+
+```bash
+pip install -r requirements.txt
+```
+
+**Note on `APPIUM_HOME`**: Appium manages drivers and plugins in a directory specified by the `APPIUM_HOME` environment variable. By default, this is `~/.appium`. You can set this variable to manage different sets of extensions if needed.
+
+## Appium Python Client and Selenium Dependency
+
+It's crucial to understand the relationship between the Appium Python Client and the Selenium Python binding:
+
+1.  **Dependency**: The `Appium-Python-Client` library *depends* on the `selenium` library. When you install `Appium-Python-Client`, it automatically installs a compatible version of `selenium` as a dependency.
+
+2.  **Inheritance**: The core Appium classes inherit from their Selenium counterparts:
+    *   `appium.webdriver.webdriver.WebDriver` inherits from `selenium.webdriver.remote.webdriver.WebDriver`.
+    *   `appium.webdriver.webelement.WebElement` inherits from `selenium.webdriver.remote.webelement.WebElement`.
+
+3.  **Functionality**: This inheritance means that the Appium Python Client provides all the standard Selenium WebDriver commands *plus* additional mobile-specific commands defined by the Appium project (like `tap`, `swipe`, `pinch`, `zoom`, context switching, etc.).
+
+4.  **Selenium Updates**: Because of this dependency, updates to the `selenium` library can potentially affect or even break the `Appium-Python-Client`. Always check the Appium Python Client's [CHANGELOG](https://github.com/appium/python-client/blob/master/CHANGELOG.rst) or documentation for compatibility notes when updating Selenium or the Appium client itself.
+
+5.  **AppiumBy**: While Appium supports standard Selenium locators (By.ID, By.XPATH, etc.), it also introduces mobile-specific locators via `appium.webdriver.common.appiumby.AppiumBy` (e.g., `AppiumBy.ACCESSIBILITY_ID`, `AppiumBy.IOS_PREDICATE_STRING`, `AppiumBy.ANDROID_UIAUTOMATOR`).
+
+## Class Structure Overview (Selenium to Appium)
+
+Here's a simplified view of the class relationship:
+
+```
++---------------------------------------------+
+| selenium.webdriver.remote.webdriver.WebDriver |
+| (Base WebDriver functionality)              |
++---------------------------------------------+
+          ^
+          |
+          (Inherits from)
+          |
++---------------------------------------------+
+| appium.webdriver.webdriver.WebDriver        |
+| (Adds mobile-specific commands, overrides)  |
++---------------------------------------------+
+
++---------------------------------------------+
+| selenium.webdriver.remote.webelement.WebElement |
+| (Base WebElement functionality)             |
++---------------------------------------------+
+          ^
+          |
+          (Inherits from)
+          |
++---------------------------------------------+
+| appium.webdriver.webelement.WebElement      |
+| (Adds mobile-specific element interactions) |
++---------------------------------------------+
+```
+
+This structure allows you to use familiar Selenium commands for common interactions while leveraging Appium's extended capabilities for mobile-specific automation tasks within the same script and object model.
+
+
 ### Locators
 Locators are now defined in separate classes:
 
@@ -443,6 +568,21 @@ class TestLogin:
                 login_page = IOSLoginPage(self.driver)
             
             # Test logic here
+```
+### Mobile Tests - Android Local
+```bash
+pytest tests/mobile/test_login.py --test-type=mobile --platform=android --execution-mode=local
+```
+
+### Mobile Tests - iOS Local
+```bash
+pytest tests/mobile/test_login.py --test-type=mobile --platform=ios --execution-mode=local
+```
+
+### Mobile Tests - Cloud (BrowserStack)
+```bash
+# Ensure BS_USERNAME and BS_ACCESS_KEY are set as environment variables
+pytest tests/mobile/test_login.py --test-type=mobile --platform=android --execution-mode=cloud --cloud-provider=browserstack --app=bs://<your_app_id>
 ```
 
 ## Reporting
